@@ -9,7 +9,7 @@
 import UIKit
 
 class PerfilViewcontroller: UIViewController {
-    let access : Firebase_Access = Firebase_Access()
+    let Access : Firebase_Access = Firebase_Access()
     
     @IBOutlet weak var pFoto: UIImageView!
     @IBOutlet weak var pCodigo: UILabel!
@@ -19,13 +19,13 @@ class PerfilViewcontroller: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let userName = UserDefaults.standard.object(forKey: "USERNAME") as? String
+        let userId = UserDefaults.standard.object(forKey: "UserId") as! Int
         
-        access.GetProfile(userName: userName!) { (profile) in
-            self.pFoto.downloadedFrom(link: profile.foto)
-            self.pCodigo.text = profile.code
-            self.pNombre.text = profile.name
-            self.pCarrera.text = profile.carrera
+        Access.GetUserById(userId: userId) { (user) in
+            self.pFoto.downloadedFrom(link: user.Photo)
+            self.pCodigo.text = String(user.UserId)
+            self.pNombre.text = user.Name
+            self.pCarrera.text = user.Career.Name
         }
     }
     

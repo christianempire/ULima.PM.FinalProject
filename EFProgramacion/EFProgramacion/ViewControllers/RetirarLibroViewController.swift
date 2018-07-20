@@ -110,19 +110,19 @@ class RetirarLibroViewController: UIViewController, AVCaptureMetadataOutputObjec
             let scan = metadataObjects.first as! AVMetadataMachineReadableCodeObject
             session.stopRunning()
             // Metodo de verificacion del codigo de barras en la BD
-            access.retrieve_book(barcode: scan.stringValue!) {(rtrn) in
-                if rtrn == true {
-                    self.session.stopRunning()
-                    let userName = UserDefaults.standard.object(forKey: "USERNAME") as? String
-                    self.access.register_checkout(book_id: scan.stringValue!, username: userName!)
-                    self.show_msg(ttl: "Éxito", msg: "Ha retirado el libro por 5 días")
-                    self.navigationController?.popViewController(animated: true)
-                    
-                } else {
-                    self.show_msg(ttl: "Error", msg: "Libro no registrado")
-                    self.viewWillAppear(true)
-                }
-            }
+//            access.retrieve_book(barcode: scan.stringValue!) {(rtrn) in
+//                if rtrn == true {
+//                    self.session.stopRunning()
+//                    let userName = UserDefaults.standard.object(forKey: "USERNAME") as? String
+//                    self.access.register_checkout(book_id: scan.stringValue!, username: userName!)
+//                    self.show_msg(ttl: "Éxito", msg: "Ha retirado el libro por 5 días")
+//                    self.navigationController?.popViewController(animated: true)
+//                    
+//                } else {
+//                    self.show_msg(ttl: "Error", msg: "Libro no registrado")
+//                    self.viewWillAppear(true)
+//                }
+//            }
             
         }
     }

@@ -17,6 +17,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.txt_usr.delegate = self
         self.txt_pss.delegate = self
     }
@@ -38,9 +39,9 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
                         return
                     }
 
-                    UserDefaults.standard.set(self.txt_usr.text ,forKey: "USERNAME")
+                    UserDefaults.standard.set(self.txt_usr.text ,forKey: "UserId")
 
-                    self.performSegue(withIdentifier: "to_main", sender: self)
+                    self.performSegue(withIdentifier: "to_profile", sender: self)
                 }
             } else {
                 show_msg(ttl: "Error", msg: "Ingrese su contraseña.")

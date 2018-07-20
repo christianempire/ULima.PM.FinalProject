@@ -11,12 +11,9 @@ class HeadlineTableViewCell: UITableViewCell {
 
 class PrestamosActualesTableViewController: UITableViewController {
     
-    
     let access : Firebase_Access = Firebase_Access()
     var book_list : [Book] = []
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,16 +43,16 @@ class PrestamosActualesTableViewController: UITableViewController {
         let cell : HeadlineTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "PrestamoCell", for: indexPath) as! HeadlineTableViewCell
         
 
-        cell.book_author.text = book_list[indexPath.row].author
-        cell.book_title.text = book_list[indexPath.row].title
-        cell.book_pic.downloadedFrom(link: book_list[indexPath.row].image)
+//        cell.book_author.text = book_list[indexPath.row].author
+//        cell.book_title.text = book_list[indexPath.row].title
+//        cell.book_pic.downloadedFrom(link: book_list[indexPath.row].image)
 
         return cell
     }
 
     override func viewDidAppear(_ animated: Bool) {
         let access = Firebase_Access()
-        book_list = access.get_user_books()
+//        book_list = access.get_user_books()
         self.tableView.reloadData()
     }
 
