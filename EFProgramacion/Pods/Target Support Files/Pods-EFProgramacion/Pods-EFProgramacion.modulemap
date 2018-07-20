@@ -1,0 +1,6 @@
+framework module Pods_EFProgramacion {
+  umbrella header "Pods-EFProgramacion-umbrella.h"
+
+  export *
+  module * { export * }
+}
